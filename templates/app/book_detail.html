@@ -1,0 +1,20 @@
+{% extends 'bace.html' %}
+
+{% block title %}
+    {{ book.title }} - Book
+{% endblock %}
+
+{% block context %}
+
+    <h4>{{ book.title }}</h4>
+    {% if book.file %}
+        <p>file: <a href="{{ book.file.path }}">{{ book.file.name }}</a></p>
+    {% endif %}
+    {% if book.custom_dir_name %}
+        <p>custom_dir_name: {{ book.custom_dir_name }}</p>
+    {% endif %}
+
+    <a href="{% url 'book-list' %}">back</a>
+    <a href="{% url 'book-update' book.pk %}">update</a>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'bace.html' %}
+
+{% block title %}
+    {{ book.title }} - Book Update
+{% endblock %}
+
+{% block context %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <hr>
+        <a href="{% url 'book' book.pk %}">back</a>
+        <button>save</button>
+    </form>
+
+{% endblock %}

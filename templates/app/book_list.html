@@ -1,0 +1,21 @@
+{% extends 'bace.html' %}
+
+{% block title %}
+    Books list
+{% endblock %}
+
+{% block context %}
+
+    <h4>Books list</h4>
+
+    <ul>
+        {% for book in books %}
+            <li>
+                <a href="{% url 'book' book.pk %}">{{ book.title }}</a>
+            </li>
+        {% empty %}
+            <li>No books yet.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
